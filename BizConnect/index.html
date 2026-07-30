@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BizConnect - A Rede Social de Empresas</title>
+  <link rel="stylesheet" href="/slyle.css">
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <div class="logo">BizConnect</div>
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="🔍 Buscar empresas ou setores...">
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Sidebar Esquerda - Perfil Personalizável -->
+    <aside>
+      <div class="card company-profile-card">
+        <!-- Foto de Perfil -->
+        <div class="avatar-container">
+          <img id="profileImg" class="profile-img" src="./ssisisi.jpg" alt="Foto de Perfil">
+        </div>
+        <label for="imageUpload" class="upload-btn">📷 Alterar Foto</label>
+        <input type="file" id="imageUpload" accept="image/*">
+
+        <!-- Informações do Perfil -->
+        <div class="profile-info">
+          <h3 id="displayProfileName">TechCorp Brasil</h3>
+          <p id="displayProfileRole">Desenvolvimento de Software</p>
+        </div>
+
+        <!-- Formação / Certificações -->
+        <div class="education-section">
+          <h4>🎓 Formação & Certificações</h4>
+          <p id="displayProfileEducation">ISO 9001 | Parceiro AWS Certified</p>
+        </div>
+
+        <button class="btn btn-outline edit-profile-btn" id="toggleEditBtn">⚙️ Editar Perfil</button>
+
+        <!-- Formulário de Edição (Oculto por padrão) -->
+        <div class="edit-form" id="editForm">
+          <label>Nome / Razão Social:</label>
+          <input type="text" id="inputName" value="TechCorp Brasil">
+
+          <label>Cargo / Segmento:</label>
+          <input type="text" id="inputRole" value="Desenvolvimento de Software">
+
+          <label>Formações / Certificações:</label>
+          <textarea id="inputEducation" rows="2">ISO 9001 | Parceiro AWS Certified</textarea>
+
+          <button class="btn" id="saveProfileBtn" style="margin-top: 10px; width: 100%;">Salvar Perfil</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Feed Central -->
+    <main>
+      <!-- Criar Post -->
+      <div class="card create-post">
+        <textarea id="postInput" placeholder="Compartilhe uma novidade da sua empresa, vaga ou projeto..."></textarea>
+        <div style="text-align: right;">
+          <button id="publishBtn" class="btn">Publicar</button>
+        </div>
+      </div>
+
+      <!-- Feed de Publicações -->
+      <div id="postsFeed">
+        <!-- Post Demonstrativo 1 -->
+        <div class="card post-card" data-company="Logística Express" data-category="Setor de Transportes Logistica">
+          <div class="post-header">
+            <img class="post-avatar-img" src="./ssisisi.jpg" alt="Avatar">
+            <div>
+              <strong class="company-name">Logística Express</strong>
+              <p style="font-size: 0.8rem; color: #777;">Há 2 horas • Setor de Transportes</p>
+            </div>
+          </div>
+          <div class="post-content">Estamos expandindo nossas rotas para a região Sul do país! Procurando parceiros locais para distribuição de última milha (last mile). Entre em contato via DM para agendarmos uma reunião.</div>
+          <div class="post-actions">
+            <button class="action-btn" onclick="toggleLike(this)">👍 Curtir (<span class="like-count">0</span>)</button>
+            <button class="action-btn">💬 Comentar</button>
+            <button class="action-btn">🔄 Compartilhar</button>
+          </div>
+        </div>
+
+        <!-- Post Demonstrativo 2 -->
+        <div class="card post-card" data-company="InovaFintech" data-category="Serviços Financeiros Banco Fintech">
+          <div class="post-header">
+            <img class="post-avatar-img" src="./ssisisi.jpg" alt="Avatar">
+            <div>
+              <strong class="company-name">InovaFintech</strong>
+              <p style="font-size: 0.8rem; color: #777;">Há 5 horas • Serviços Financeiros</p>
+            </div>
+          </div>
+          <div class="post-content">Lançamos nossa nova API de pagamentos corporativos! Empresas parceiras agora têm acesso a taxas diferenciadas para transações em lote.</div>
+          <div class="post-actions">
+            <button class="action-btn" onclick="toggleLike(this)">👍 Curtir (<span class="like-count">3</span>)</button>
+            <button class="action-btn">💬 Comentar</button>
+            <button class="action-btn">🔄 Compartilhar</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Sidebar Direita -->
+    <aside>
+      <div class="card">
+        <h4>Empresas Recomendadas</h4>
+        
+        <div id="suggestionsList">
+          <div class="suggestion-item" data-company="SoftSolutions" data-category="TI & Cloud Tecnologia Software">
+            <div>
+              <strong class="company-name">SoftSolutions</strong>
+              <p style="font-size: 0.8rem; color: #777;">TI & Cloud</p>
+            </div>
+            <button class="btn btn-outline" onclick="toggleConnect(this)">Conectar</button>
+          </div>
+
+          <div class="suggestion-item" data-company="EcoEmbalagens" data-category="Sustentabilidade Embalagens Reciclagem">
+            <div>
+              <strong class="company-name">EcoEmbalagens</strong>
+              <p style="font-size: 0.8rem; color: #777;">Sustentabilidade</p>
+            </div>
+            <button class="btn btn-outline" onclick="toggleConnect(this)">Conectar</button>
+          </div>
+
+          <div class="suggestion-item" data-company="AgroData" data-category="Agronegócio Tecnologia Dados">
+            <div>
+              <strong class="company-name">AgroData</strong>
+              <p style="font-size: 0.8rem; color: #777;">Agronegócio & Dados</p>
+            </div>
+            <button class="btn btn-outline" onclick="toggleConnect(this)">Conectar</button>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+ <script src="script.js" defer></script>
+
+</body>
+</html>
