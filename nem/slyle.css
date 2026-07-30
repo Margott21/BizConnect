@@ -1,0 +1,258 @@
+    /* Estilos Gerais */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #202122;
+      color: #333;
+    }
+
+    /* Navbar */
+    header {
+      background-color: #0a66c2;
+      color: white;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .search-bar input {
+      padding: 8px 15px;
+      border-radius: 20px;
+      border: 1px solid transparent;
+      width: 280px;
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    .search-bar input:focus {
+      border-color: #ffffff;
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+
+    /* Layout Main */
+    .container {
+      max-width: 1100px;
+      margin: 20px auto;
+      display: grid;
+      grid-template-columns: 1.1fr 2fr 1fr;
+      gap: 20px;
+      padding: 0 10px;
+    }
+
+    .card {
+      background: rgb(124, 255, 240);
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    /* Sidebar Esquerda - Perfil */
+    .company-profile-card {
+      text-align: center;
+    }
+
+    .avatar-container {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 10px;
+    }
+
+    .profile-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #0a66c2;
+    }
+
+    .upload-btn {
+      display: inline-block;
+      margin-top: 5px;
+      font-size: 0.75rem;
+      color: #0a66c2;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    #imageUpload {
+      display: none;
+    }
+
+    .profile-info {
+      margin-top: 10px;
+    }
+
+    .profile-info h3 {
+      font-size: 1.1rem;
+    }
+
+    .profile-info p {
+      color: #030303;
+      font-size: 0.85rem;
+      margin-top: 2px;
+    }
+
+    .education-section {
+      margin-top: 15px;
+      border-top: 1px solid #eee;
+      padding-top: 10px;
+      text-align: left;
+      font-size: 0.85rem;
+    }
+
+    .education-section h4 {
+      font-size: 0.9rem;
+      color: #0a66c2;
+      margin-bottom: 5px;
+    }
+
+    .edit-profile-btn {
+      margin-top: 10px;
+      width: 100%;
+      padding: 6px;
+      font-size: 0.8rem;
+    }
+
+    /* Modal de Edição */
+    .edit-form {
+      display: none;
+      text-align: left;
+      margin-top: 10px;
+      border-top: 1px solid #eee;
+      padding-top: 10px;
+    }
+
+    .edit-form label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: bold;
+      margin-top: 8px;
+      color: #050505;
+    }
+
+    .edit-form input, .edit-form textarea {
+      width: 100%;
+      padding: 6px;
+      font-size: 0.85rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-top: 3px;
+    }
+
+    /* Feed Central */
+    .create-post textarea {
+      width: 100%;
+      height: 60px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      resize: none;
+      margin-bottom: 10px;
+      outline: none;
+    }
+
+    .btn {
+      background-color: #0a66c2;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.2s;
+    }
+
+    .btn:hover {
+      background-color: #004182;
+    }
+
+    .post-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .post-avatar-img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .post-content {
+      margin-bottom: 15px;
+      line-height: 1.4;
+      white-space: pre-wrap;
+    }
+
+    .post-actions {
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid #eee;
+      padding-top: 10px;
+    }
+
+    .action-btn {
+      background: none;
+      border: none;
+      color: #050303;
+      cursor: pointer;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 4px;
+      transition: background-color 0.2s;
+    }
+
+    .action-btn:hover {
+      background-color: #f0f0f0;
+    }
+
+    .action-btn.liked {
+      color: #0a66c2;
+    }
+
+    /* Sidebar Direita */
+    .suggestion-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+      padding: 5px 0;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #0a66c2;
+      color: #0a66c2;
+    }
+
+    .btn-outline:hover {
+      background: #eef3f8;
+    }
+
+    /* Animação / Ocultar buscas */
+    .hidden {
+      display: none !important;
+    }
